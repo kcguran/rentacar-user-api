@@ -1,0 +1,17 @@
+.idea
+/*/.mvn
+/auth-service/mvnw
+/car-service/mvnw
+/config-service/mvnw
+/eureka-server/mvnw
+/offer-service/mvnw
+/reservation-service/mvnw
+/user-service/mvnw
+/auth-service/mvnw.cmd
+/car-service/mvnw.cmd
+/config-service/mvnw.cmd
+/eureka-server/mvnw.cmd
+/offer-service/mvnw.cmd
+/reservation-service/mvnw.cmd
+/user-service/mvnw.cmd
+
