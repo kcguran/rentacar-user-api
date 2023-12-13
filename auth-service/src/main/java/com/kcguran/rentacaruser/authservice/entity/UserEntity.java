@@ -1,6 +1,6 @@
-package com.kcguran.rentacaruser.userservice.entity;
+package com.kcguran.rentacaruser.authservice.entity;
 
-import com.kcguran.rentacaruser.userservice.entity.shared.DateAudit;
+import com.kcguran.rentacaruser.authservice.entity.shared.DateAudit;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,5 +36,11 @@ public class UserEntity extends DateAudit {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "enabled")
+    private boolean enabled;
 }
 
