@@ -217,3 +217,16 @@ w
 Guser-service/src/main/java/userservice/other/SpringBeanFactoryUtil.java,9\7\97cb744bfa8c6fc0f2008eed1210fda4f916d4cb
 r
 Buser-service/src/main/java/userservice/UserServiceApplication.java,e\4\e41fc523f24be08abc2691775be1ae93f49290a2
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+M
+auth-service/auth-service.iml,6\2\62bf8ca65f5f3c5002f9bace1fac4663fd1ddaf1
+M
+user-service/user-service.iml,2\1\2186a206662f926812004b854ba1673201983f4d
+O
+offer-service/offer-service.iml,c\5\c53a4127a8a728230642e3450cef70b38e6a02ce
+[
++reservation-service/reservation-service.iml,f\a\fac100e078f6dc52290917bd346db0f64d794c4b
+O
+eureka-server/eureka-server.iml,5\9\59b33c14ea6e5070e27548952f906addf8bf425f
