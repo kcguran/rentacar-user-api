@@ -1,0 +1,15 @@
+server:
+  port: 8735
+
+spring:
+  profiles:
+    active: native
+  application:
+    name: config-server
+
+eureka:
+  instance:
+    hostname: ${CONFIG_HOSTNAME:localhost}
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOSTNAME:localhost}:${EUREKA_PORT:8761}/eureka

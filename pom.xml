@@ -34,6 +34,7 @@
         <module>car-service</module>
         <module>auth-service</module>
         <module>parent-service</module>
+        <module>config-server</module>
     </modules>
 
     <dependencyManagement>
@@ -47,6 +48,17 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

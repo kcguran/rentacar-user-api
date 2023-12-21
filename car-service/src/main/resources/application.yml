@@ -1,8 +1,8 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   application:
-    name: rentacar-user-api-userservice
+    name: rentacar-user-api-carservice
   datasource:
     url: jdbc:h2:mem:rentacar-carservice
     driver-class-name: org.h2.Driver
