@@ -7,6 +7,7 @@
         <groupId>com.kcguran</groupId>
         <artifactId>rentacar-user-api</artifactId>
         <version>1.0</version>
+        <relativePath/>
     </parent>
 
     <artifactId>eureka-server</artifactId>

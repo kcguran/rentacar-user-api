@@ -230,3 +230,9 @@ O
 +reservation-service/reservation-service.iml,f\a\fac100e078f6dc52290917bd346db0f64d794c4b
 O
 eureka-server/eureka-server.iml,5\9\59b33c14ea6e5070e27548952f906addf8bf425f
+b
+2parent-service/src/main/java/com/kcguran/Main.java,f\d\fdae8c6be214ef9619748e103e7a91d2238fc10b
+F
+parent-service/pom.xml,4\1\41d2b700a7905e8d158bc942b1be11461b2894a6
+B
+parent-service.iml,6\b\6b7f97819877ccf357d46e6466dcf1abd9d988d5

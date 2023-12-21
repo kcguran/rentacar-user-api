@@ -33,6 +33,7 @@
         <module>offer-service</module>
         <module>car-service</module>
         <module>auth-service</module>
+        <module>parent-service</module>
     </modules>
 
     <dependencyManagement>

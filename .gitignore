@@ -1,48 +1,46 @@
 # IntelliJ IDEA
 .idea/
 
-# Compiled files
-*.class
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# Logs and databases
-*.log
-*.sql
-*.sqlite
-
-# OS-specific files
-.DS_Store
-Thumbs.db
-
-# Maven
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-
-# Gradle
-build/
-.gradle/
-
 # Eclipse
 .classpath
 .project
 .settings/
 
-# Visual Studio Code
-.vscode/
+# Maven
+**/target/
+*.iml
+*.ipr
+*.iws
+.idea/
+.idea_modules/
 
-# macOS
+# Gradle
+.gradle/
+build/
+
+# Logs
+logs/
+*.log
+
+# OS-specific
 .DS_Store
-
-# Windows
 Thumbs.db
+
+# Compiled Java
+*.class
+
+# Compiled Kotlin
+*.kotlin_module
+
+# Compiled Groovy
+**/out/
+
+# Spring Boot
+*.jar
+*.war
+**/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Local configuration file (application-*.yml, application-*.properties)
+/application-*.yml
+/application-*.properties

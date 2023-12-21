@@ -120,6 +120,10 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/securityhotspotstore/d/e" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/securityhotspotstore/e" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/securityhotspotstore/f" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/4/1" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/issuestore/6/b" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/securityhotspotstore/4/1" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/sonarlint/securityhotspotstore/6/b" />
     </content>
   </component>
   <component name="SonarLintModuleSettings">

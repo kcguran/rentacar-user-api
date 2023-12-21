@@ -7,8 +7,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka-server" />
-        <module name="offer-service" />
       </profile>
       <profile name="Annotation profile for rentacar-user-api" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -20,12 +18,15 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.0.RC1/mapstruct-1.5.0.RC1.jar" />
         </processorPath>
         <module name="auth-service" />
+        <module name="offer-service" />
+        <module name="reservation-service" />
         <module name="car-service" />
         <module name="user-service" />
-        <module name="reservation-service" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="config-server" target="17" />
       <module name="config-service" target="17" />
       <module name="renacar-user-microservice" target="17" />
     </bytecodeTargetLevel>
@@ -37,6 +38,7 @@
       <module name="config-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="offer-service" options="-parameters" />
+      <module name="parent-service" options="-parameters" />
       <module name="rentacar-user-api" options="-parameters" />
       <module name="reservation-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
