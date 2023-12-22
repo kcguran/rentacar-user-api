@@ -4,7 +4,7 @@ spring:
   application:
     name: rentacar-user-api-userservice
   datasource:
-    url: jdbc:h2:mem:rentacar-carservice
+    url: jdbc:h2:mem:rentacar-userservice
     driver-class-name: org.h2.Driver
     username: admin
     password: admin
