@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.kcguran</groupId>
-        <artifactId>parent-service</artifactId>
+        <artifactId>rentacar-user-api</artifactId>
         <version>1.0</version>
-        <relativePath>../parent-service/pom.xml</relativePath>
+        <relativePath/>
     </parent>
 
     <artifactId>api-gateway</artifactId>
@@ -20,6 +20,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -35,6 +39,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

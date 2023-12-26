@@ -33,7 +33,6 @@
         <module>offer-service</module>
         <module>car-service</module>
         <module>auth-service</module>
-        <module>parent-service</module>
         <module>config-server</module>
         <module>api-gateway</module>
     </modules>
