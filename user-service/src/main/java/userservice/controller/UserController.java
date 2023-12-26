@@ -9,7 +9,7 @@ import userservice.service.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
@@ -18,8 +18,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "getAll")
-    public List<UserEntity> getAllUsers(){
-        return this.userService.getAllUsers();
+    @GetMapping()
+    public String getAllUsers(){
+        return "Başarılı";
     }
 }

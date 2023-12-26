@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/car")
+@RequestMapping("/api/cars")
 public class CarController {
 
     private final CarRepository carRepository;
@@ -23,8 +23,8 @@ public class CarController {
     }
 
     @GetMapping
-    public AppResponse<List<CarDtoResponse>> getAllCars(){
-        return getAllCars();
+    public String getAllCars(){
+        return "CarService Başarılı";
     }
 
 }
