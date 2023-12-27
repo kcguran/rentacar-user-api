@@ -15,7 +15,6 @@ public class AuthController {
 
     @GetMapping(value = "/register")
     public AppResponse<UserEntity> register(@RequestBody @Valid RegisterDto registerDto) {
-        UserEntity user = new UserEntity();
-        return AppResponse.success(user);
+        return AppResponse.success(new UserEntity());
     }
 }
