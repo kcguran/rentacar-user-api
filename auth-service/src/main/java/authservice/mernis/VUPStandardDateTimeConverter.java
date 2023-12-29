@@ -11,7 +11,7 @@ package authservice.mernis;
 // To use it in commercial project, you need to generate this class again with Premium account.
 // Check https://EasyWsdl.com/Payment/PremiumAccountDetails to see all benefits of Premium account.
 //
-// Licence: 37ECB4F69EBD1195BAB1C27B7C9AB4C170BCC288DDFA0788A5CE8933A2233459788D83E331BB91306D71C85CECF22C480E6CECC72C41C29D95683D3E09B3E81D
+// Licence: 4D911721BF25E562B8535A774BA920959C544A195CC924C663EFD3E12A9D87DDFF83413D827D1CF3C06AA9B6C5F2F608181EA91E5F6462D002B5DB0ECFFEB1B6
 //------------------------------------------------------------------------
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,7 +19,7 @@ import java.util.Locale;
 
 
 
-public class KDGStandardDateTimeConverter implements KDGDateTimeConverter
+public class VUPStandardDateTimeConverter implements VUPDateTimeConverter
 {
     public java.util.TimeZone TimeZone=java.util.TimeZone.getTimeZone("UTC");
 

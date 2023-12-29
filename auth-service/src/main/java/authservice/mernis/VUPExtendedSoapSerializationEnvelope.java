@@ -10,7 +10,7 @@ package authservice.mernis;
 // To use it in commercial project, you need to generate this class again with Premium account.
 // Check https://EasyWsdl.com/Payment/PremiumAccountDetails to see all benefits of Premium account.
 //
-// Licence: 37ECB4F69EBD1195BAB1C27B7C9AB4C170BCC288DDFA0788A5CE8933A2233459788D83E331BB91306D71C85CECF22C480E6CECC72C41C29D95683D3E09B3E81D
+// Licence: 4D911721BF25E562B8535A774BA920959C544A195CC924C663EFD3E12A9D87DDFF83413D827D1CF3C06AA9B6C5F2F608181EA91E5F6462D002B5DB0ECFFEB1B6
 //------------------------------------------------------------------------
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.*;
@@ -32,13 +32,13 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 
-class KDGSoapFaultEx extends org.ksoap2.SoapFault
+class VUPSoapFaultEx extends org.ksoap2.SoapFault
 {
     public Object fault;
 }
 
 //If you have a compilation error here then you have to add a reference to ExKsoap2.jar to your project (you can find it in Libs folder in the generated zip file)
-public class KDGExtendedSoapSerializationEnvelope extends com.easywsdl.exksoap2.serialization.ExSoapSerializationEnvelope {
+public class VUPExtendedSoapSerializationEnvelope extends com.easywsdl.exksoap2.serialization.ExSoapSerializationEnvelope {
     static HashMap< java.lang.String,java.lang.Class> classNames = new HashMap< java.lang.String, java.lang.Class>();
     static HashMap< java.lang.String,java.lang.String> elementNames = new HashMap< java.lang.String, java.lang.String>();
     public static String TAG="easyWSDL";
@@ -48,31 +48,31 @@ public class KDGExtendedSoapSerializationEnvelope extends com.easywsdl.exksoap2.
     public boolean enableLogging;
     public boolean createClassesForAny = false;
 
-    public static void setDateTimeConverter(KDGDateTimeConverter converter)
+    public static void setDateTimeConverter(VUPDateTimeConverter converter)
     {
         if(converter==null)
         {
-            converter = new KDGStandardDateTimeConverter();
+            converter = new VUPStandardDateTimeConverter();
         }
         dateTimeConverter=converter;
     }
 
-    public static KDGDateTimeConverter getDateTimeConverter()
+    public static VUPDateTimeConverter getDateTimeConverter()
     {
         return dateTimeConverter;
     }
 
-    private static KDGDateTimeConverter dateTimeConverter = new KDGStandardDateTimeConverter();
+    private static VUPDateTimeConverter dateTimeConverter = new VUPStandardDateTimeConverter();
 
-    public KDGExtendedSoapSerializationEnvelope() {
+    public VUPExtendedSoapSerializationEnvelope() {
         this(SoapEnvelope.VER11);
     }
 
-    public KDGExtendedSoapSerializationEnvelope(int soapVersion) {
+    public VUPExtendedSoapSerializationEnvelope(int soapVersion) {
         super(soapVersion);
         implicitTypes = true;
         setAddAdornments(false);
-        new KDGMarshalGuid().register(this);
+        new VUPMarshalGuid().register(this);
         new MarshalFloat().register(this);
     }
 
@@ -126,7 +126,7 @@ public class KDGExtendedSoapSerializationEnvelope extends com.easywsdl.exksoap2.
         if (!type.multiRef && qName[2] == null )
         {
             if (!implicitTypes || (obj.getClass() != type.type && !(obj instanceof Vector ) && type.type!=java.lang.String.class  )) {
-                java.lang.String xmlName=KDGHelper.getKeyByValue(classNames,obj.getClass());
+                java.lang.String xmlName=VUPHelper.getKeyByValue(classNames,obj.getClass());
                 if(xmlName!=null) {
                     java.lang.String[] parts = xmlName.split("\\^\\^");
                     java.lang.String prefix = writer.getPrefix(parts[0], true);
@@ -249,7 +249,7 @@ public class KDGExtendedSoapSerializationEnvelope extends com.easywsdl.exksoap2.
     }
     private Object createObject(Object soap, Class cl) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         Object obj=cl.newInstance();
-        Method ctor = obj.getClass().getMethod("loadFromSoap",Object.class,KDGExtendedSoapSerializationEnvelope.class);
+        Method ctor = obj.getClass().getMethod("loadFromSoap",Object.class,VUPExtendedSoapSerializationEnvelope.class);
         ctor.invoke(obj,soap,this);
         return obj;
     }
@@ -368,7 +368,7 @@ public class KDGExtendedSoapSerializationEnvelope extends com.easywsdl.exksoap2.
         {
             return "boolean";
         }
-        java.lang.String xmlName=KDGHelper.getKeyByValue(classNames,obj);
+        java.lang.String xmlName=VUPHelper.getKeyByValue(classNames,obj);
         if(xmlName==null)
         {
             return obj;

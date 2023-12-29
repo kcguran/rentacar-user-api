@@ -11,7 +11,7 @@ package authservice.mernis;
 // To use it in commercial project, you need to generate this class again with Premium account.
 // Check https://EasyWsdl.com/Payment/PremiumAccountDetails to see all benefits of Premium account.
 //
-// Licence: 37ECB4F69EBD1195BAB1C27B7C9AB4C170BCC288DDFA0788A5CE8933A2233459788D83E331BB91306D71C85CECF22C480E6CECC72C41C29D95683D3E09B3E81D
+// Licence: 4D911721BF25E562B8535A774BA920959C544A195CC924C663EFD3E12A9D87DDFF83413D827D1CF3C06AA9B6C5F2F608181EA91E5F6462D002B5DB0ECFFEB1B6
 //------------------------------------------------------------------------
 import java.util.*;
 import org.ksoap2.serialization.*;
@@ -19,7 +19,7 @@ import org.kxml2.kdom.Element;
 import org.kxml2.kdom.Node;
 
 
-public class KDGHelper
+public class VUPHelper
 {
     public static < T, E> T getKeyByValue(java.util.Map< T, E> map, E value) {
         for (java.util.Map.Entry< T, E> entry : map.entrySet()) {
@@ -103,7 +103,7 @@ public class KDGHelper
             if (obj instanceof java.util.Date)
             {
                 java.util.Date date = (java.util.Date) obj;
-                value = KDGExtendedSoapSerializationEnvelope.getDateTimeConverter().getStringFromDateTime(date);
+                value = VUPExtendedSoapSerializationEnvelope.getDateTimeConverter().getStringFromDateTime(date);
             }
             parentElement.addChild(org.kxml2.kdom.Node.TEXT,value);
         }
