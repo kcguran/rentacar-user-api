@@ -12,4 +12,5 @@ public class AuthServiceApplication {
 		SpringApplication.run(AuthServiceApplication.class, args);
 	}
 
+	//TODO MERNIS DOGRULAMA EKLENECEK
 }

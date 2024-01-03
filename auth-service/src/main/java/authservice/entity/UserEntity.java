@@ -9,6 +9,9 @@ import lombok.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
 @SequenceGenerator(name = "SEQUENCE", sequenceName = "USERS_ID_SEQ", allocationSize = 1)
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 public class UserEntity extends DateAudit {
 
@@ -42,5 +45,6 @@ public class UserEntity extends DateAudit {
 
     @Column(name = "enabled")
     private boolean enabled;
+
 }
 
