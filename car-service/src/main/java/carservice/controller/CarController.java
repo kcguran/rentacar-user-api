@@ -1,17 +1,13 @@
 package carservice.controller;
 
-import carservice.entity.dto.CarDtoResponse;
 import carservice.mapper.CarMapper;
-import carservice.other.AppResponse;
 import carservice.repository.CarRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/api/cars")
+@RequestMapping("/cars")
 public class CarController {
 
     private final CarRepository carRepository;

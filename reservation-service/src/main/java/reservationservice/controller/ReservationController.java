@@ -11,7 +11,7 @@ import reservationservice.service.ReservationService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/car")
+@RequestMapping("/reservation")
 public class ReservationController {
 
     private final ReservationService reservationService;
@@ -24,8 +24,8 @@ public class ReservationController {
 
 
     @GetMapping
-    public AppResponse<List<ReservationResponseDto>> getAllCars() {
-        return getAllCars();
+    public AppResponse<List<ReservationResponseDto>> getAllReservation() {
+        return getAllReservation();
     }
 
 }
