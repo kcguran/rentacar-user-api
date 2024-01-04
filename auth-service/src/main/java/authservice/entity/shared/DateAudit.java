@@ -20,11 +20,11 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class DateAudit implements BaseEntity, Serializable {
 
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private Date createdAt;
-
-    @LastModifiedDate
-    @Column(nullable = false)
-    private Date updatedAt;
+//    @CreatedDate
+//    @Column(nullable = false, updatable = false)
+//    private Date createdAt;
+//
+//    @LastModifiedDate
+//    @Column(nullable = false)
+//    private Date updatedAt;
 }

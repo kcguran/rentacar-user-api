@@ -1,19 +1,17 @@
 package authservice.service;
 
 import authservice.entity.UserEntity;
-import authservice.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
-public class UserService {
+public interface UserService {
 
-    private final UserRepository userRepository;
+    Optional<UserEntity> findByUsername(String username);
 
-    public Optional<UserEntity> findByUsername(String username){
-        return userRepository.findByUsername(username);
-    }
+    boolean existsByUsername(String username);
+
+    boolean existsByPhone(String phone);
+
+    void saveUser(UserEntity userEntity);
+
 }

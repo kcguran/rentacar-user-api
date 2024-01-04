@@ -1,16 +1,28 @@
 server:
   port: 8090
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: INFO
+
+
 spring:
+  security:
+    user:
+      password: password
   application:
     name: rentacar-user-api-authservice
   datasource:
-    url: jdbc:h2:mem:rentacar-userservice
+    url: jdbc:h2:mem:rentacar-authservice
     driver-class-name: org.h2.Driver
     username: admin
     password: admin
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     show-sql: true
     database-platform: org.hibernate.dialect.H2Dialect
 
@@ -25,4 +37,4 @@ eureka:
 
 jwt:
   secret: 4509b6310995804bb752cf947c773c6a965a9844502a8da8ea770ef496b3aa5a8fc78825e3fda93baaaa02d22914694ed318a5ada2fa083f23a3cde4a1f574a5
-  expiration-in-ms : 86400000
+  expiration-in-ms: 86400000
