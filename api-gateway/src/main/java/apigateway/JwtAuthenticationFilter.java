@@ -1,5 +1,6 @@
 package apigateway;
 
+import apigateway.config.RouterValidator;
 import apigateway.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
@@ -12,8 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-import java.util.function.Predicate;
 
 @Component
 @RequiredArgsConstructor
@@ -21,18 +20,17 @@ public class JwtAuthenticationFilter implements GatewayFilter {
 
     private final JwtUtil jwtUtil;
 
+    private final RouterValidator routerValidator;
+
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 
         ServerHttpRequest request = exchange.getRequest();
-        final List<String> apiEndpoints = List.of("/signup", "/login");
-        Predicate<ServerHttpRequest> isApiSecured = r -> apiEndpoints.stream()
-                .noneMatch(uri -> r.getURI().getPath().contains(uri));
-        if (isApiSecured.test(request)) {
+
+        if (routerValidator.isSecured.test(request)) {
             if ((!request.getHeaders().containsKey("Authorization"))) {
-                ServerHttpResponse response = exchange.getResponse();
-                response.setStatusCode(HttpStatus.UNAUTHORIZED);
-                return response.setComplete();
+                return onError(exchange,HttpStatus.UNAUTHORIZED);
             }
 
             final String authorization = request.getHeaders().getOrEmpty("Authorization").get(0);
@@ -41,13 +39,17 @@ public class JwtAuthenticationFilter implements GatewayFilter {
             try {
                 jwtUtil.validateToken(token);
             } catch (Exception exception) {
-                ServerHttpResponse response = exchange.getResponse();
-                response.setStatusCode(HttpStatus.UNAUTHORIZED);
-                return response.setComplete();
+                return onError(exchange,HttpStatus.UNAUTHORIZED);
             }
             Claims claims = jwtUtil.getClaims(token);
             exchange.getRequest().mutate().header("username", String.valueOf(claims.get("username"))).build();
         }
         return chain.filter(exchange);
+    }
+
+    private Mono<Void> onError(ServerWebExchange exchange, HttpStatus httpStatus) {
+        ServerHttpResponse response = exchange.getResponse();
+        response.setStatusCode(httpStatus);
+        return response.setComplete();
     }
 }

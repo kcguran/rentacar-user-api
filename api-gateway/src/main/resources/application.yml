@@ -1,14 +1,9 @@
-#server.port = 8080
-#
-#spring.application.name = rentacar-user-api-apigateway
-#
-#logging.level.root = INFO
-#logging.level.org.springframework.cloud.gateway = TRACE
-#logging.level.org.springframework.cloud.gateway.route.RouteDefinitionLocator = INFO
-#
-#eureka.instance.hostname= localhost
-#eureka.client.service-url.defaultZone = http://localhost:8761/eureka
-
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
 logging:
   level:
     root: INFO
@@ -17,7 +12,6 @@ logging:
         cloud:
           gateway: TRACE
         cloud.gateway.route.RouteDefinitionLocator: INFO
-
 
 server:
   port: 8080
@@ -43,41 +37,34 @@ spring:
           uri: lb://rentacar-user-api-userservice
           predicates:
             - Path=/users/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: rentacar-user-api-userservice
-                fallbackuri: forward:/userServiceFallBack
+#          filters:
+#            - JwtAuthenticationFilter
+#            - name: CircuitBreaker
+#              args:
+#                name: rentacar-user-api-userservice
+#                fallbackuri: forward:/userServiceFallBack
         - id: rentacar-user-api-carservice
           uri: lb://rentacar-user-api-carservice
           predicates:
             - Path=/car/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: rentacar-user-api-carservice
-                fallbackuri: forward:/carServiceFallBack
+#          filters:
+#            - JwtAuthenticationFilter
+#            - name: CircuitBreaker
+#              args:
+#                name: rentacar-user-api-carservice
+#                fallbackuri: forward:/carServiceFallBack
+        - id: rentacar-user-api-authservice
+          uri: lb://rentacar-user-api-authservice
+          predicates:
+            - Path=/auth/**
+#          filters:
+#            - JwtAuthenticationFilter
+#            - name: CircuitBreaker
+#              args:
+#                name: rentacar-user-api-authservice
+#                fallbackuri: forward:/authServiceFallback
 
 jwt:
-  secret : 4509b6310995804bb752cf947c773c6a965a9844502a8da8ea770ef496b3aa5a8fc78825e3fda93baaaa02d22914694ed318a5ada2fa083f23a3cde4a1f574a5
+  secret: 4509b6310995804bb752cf947c773c6a965a9844502a8da8ea770ef496b3aa5a8fc78825e3fda93baaaa02d22914694ed318a5ada2fa083f23a3cde4a1f574a5
 
 
-#spring.cloud.gateway.routes[0].id=rentacar-user-api-userservice
-#spring.cloud.gateway.routes[0].uri=lb://rentacar-user-api-userservice
-#spring.cloud.gateway.routes[0].predicates[0].=Path=/api/users
-#
-#spring.cloud.gateway.routes[1].id=rentacar-user-api-carservice
-#spring.cloud.gateway.routes[1].uri=lb://rentacar-user-api-carservice
-#spring.cloud.gateway.routes[1].predicates[0].=Path=/api/cars
-#
-#spring.cloud.gateway.routes[2].id=rentacar-user-api-resarvationservice
-#spring.cloud.gateway.routes[2].uri=lb://rentacar-user-api-resarvationservice
-#spring.cloud.gateway.routes[2].predicates[0].=Path=/api/reservation
-#
-#spring.cloud.gateway.routes[3].id=rentacar-user-api-offerservice
-#spring.cloud.gateway.routes[3].uri=lb://rentacar-user-api-offerservice
-#spring.cloud.gateway.routes[3].predicates[0].=Path=/api/offer
-#
-#spring.cloud.gateway.routes[4].id=rentacar-user-api-authservice
-#spring.cloud.gateway.routes[4].uri=lb://rentacar-user-api-authservice
-#spring.cloud.gateway.routes[4].predicates[0].=Path=/api/auth
