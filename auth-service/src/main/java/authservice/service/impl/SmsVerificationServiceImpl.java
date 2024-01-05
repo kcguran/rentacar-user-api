@@ -1,7 +1,6 @@
 package authservice.service.impl;
 
 import authservice.service.SmsVerificationService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -9,13 +8,17 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.TimeUnit;
 
 @Service
-@RequiredArgsConstructor
 public class SmsVerificationServiceImpl implements SmsVerificationService {
 
     private final RedisTemplate<String, String> redisTemplate;
     private final ValueOperations<String, String> valueOperations;
 
     private static final String SMS_VERIFICATION_PREFIX = "sms_verification:";
+
+    public SmsVerificationServiceImpl(RedisTemplate<String, String> redisTemplate, ValueOperations<String, String> valueOperations) {
+        this.redisTemplate = redisTemplate;
+        this.valueOperations = valueOperations;
+    }
 
     @Override
     public void saveRegisterSmsCodeToCache(String username, String smsCode) {

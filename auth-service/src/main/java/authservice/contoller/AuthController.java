@@ -90,7 +90,7 @@ public class AuthController {
         if (!userService.existsByUsername(registerDto.getUsername())
                 || !userService.existsByPhone(registerDto.getPhone())
                 || !userService.existsByEmail(registerDto.getEmail())
-                || userService.findByEmail(registerDto.getEmail()).isEmpty() || !userService.existsByIdentityNumber(registerDto.getIdentityNumber())) {
+                || !userService.existsByIdentityNumber(registerDto.getIdentityNumber())) {
 
             // TODO MERNIS DOGRULAMA EKLENECEK
 //            if (!checkMernis(signUpDto.getFirstname(), signUpDto.getLastname(), Long.parseLong(signUpDto.getTcno()), signUpDto.getBirthYear())) {
