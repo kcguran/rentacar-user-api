@@ -1,7 +1,6 @@
 package apigateway.config;
 
 import apigateway.JwtAuthenticationFilter;
-import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;

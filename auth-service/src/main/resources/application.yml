@@ -25,11 +25,16 @@ spring:
       ddl-auto: create
     show-sql: true
     database-platform: org.hibernate.dialect.H2Dialect
-
   h2:
     console:
       enabled: true
       path: /h2-console
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: mypass
+      timeout: 60000
 eureka:
   client:
     serviceUrl:
@@ -38,3 +43,4 @@ eureka:
 jwt:
   secret: 4509b6310995804bb752cf947c773c6a965a9844502a8da8ea770ef496b3aa5a8fc78825e3fda93baaaa02d22914694ed318a5ada2fa083f23a3cde4a1f574a5
   expiration-in-ms: 86400000
+

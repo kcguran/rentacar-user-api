@@ -2,6 +2,7 @@ package authservice.service.impl;
 
 import authservice.entity.UserEntity;
 import authservice.entity.dto.RegisterDto;
+import authservice.exceptions.AppException;
 import authservice.mapper.AuthMapper;
 import authservice.repository.UserRepository;
 import authservice.service.UserService;
@@ -22,6 +23,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Optional<UserEntity> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
+    @Override
     public boolean existsByUsername(String username) {
         return userRepository.existsByUsername(username);
     }
@@ -29,6 +40,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean existsByPhone(String phone) {
         return userRepository.existsByPhone(phone);
+    }
+
+    @Override
+    public boolean existsByIdentityNumber(String identityNumber) {
+        return userRepository.existsByIdentityNumber(identityNumber);
     }
 
     @Transactional

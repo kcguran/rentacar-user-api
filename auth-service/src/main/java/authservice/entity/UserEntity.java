@@ -46,5 +46,17 @@ public class UserEntity extends DateAudit {
     @Column(name = "enabled")
     private boolean enabled;
 
+    @Column(name = "loginSms")
+    private String loginSms;
+
+    @Column(name = "registersms")
+    private String registerSms;
+
+    @Column(name = "forgotpasswordsms")
+    private String forgotPasswordSms;
+
+    @Column(name = "phoneverification")
+    private boolean phoneVerification;
+
 }
 
