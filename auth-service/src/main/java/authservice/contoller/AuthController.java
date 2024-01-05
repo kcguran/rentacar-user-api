@@ -38,20 +38,20 @@ public class AuthController {
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
-    private final SmsVerificationService smsVerificationService;
+//    private final SmsVerificationService smsVerificationService;
 
     public AuthController(AuthenticationManager authenticationManager,
                           UserService userService,
                           AuthMapper authMapper,
                           PasswordEncoder passwordEncoder,
-                          UserRepository userRepository, JwtTokenProvider jwtTokenProvider, SmsVerificationService smsVerificationService) {
+                          UserRepository userRepository, JwtTokenProvider jwtTokenProvider/* , SmsVerificationService smsVerificationService*/) {
         this.authenticationManager = authenticationManager;
         this.userService = userService;
         this.authMapper = authMapper;
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
         this.jwtTokenProvider = jwtTokenProvider;
-        this.smsVerificationService = smsVerificationService;
+        /*this.smsVerificationService = smsVerificationService;*/
     }
 
     @SneakyThrows
@@ -62,12 +62,14 @@ public class AuthController {
         Optional<UserEntity> user = userService.findByUsername(userDetails.getUsername());
         UserEntity userEntity = user.orElseThrow(() -> new AppException("Hata"));
         if (userEntity.isPhoneVerification()) {
-            smsVerificationService.saveRegisterSmsCodeToCache(userEntity.getUsername(), prodOrLocalCode());
+//            smsVerificationService.saveRegisterSmsCodeToCache(userEntity.getUsername(), prodOrLocalCode());
 //            userEntity.setLoginSms(SpringUtils.isProd() ? Util.getRandomCode(6) : "123456");
 //            userService.saveUser(userEntity);
 //            smsSender.send(SmsRequestDto.builder().phones(user.getPhone()).message(Util.smsFill(user.getSmsToken())).build());
+            return AppResponse.success(userEntity);
+
         }
-        return AppResponse.success(userEntity);
+        throw new AppException("Telefon numaranız henüz onaylanmadı.");
     }
 
     @PostMapping(value = "/sms-verification")
@@ -75,10 +77,10 @@ public class AuthController {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(smsVerificationDto.getUsername(), smsVerificationDto.getPassword()));
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         UserEntity userEntity = userService.findByUsername(userDetails.getUsername()).orElseThrow(() -> new AppException("Hata"));
-        String smsToken = smsVerificationService.getRegisterSmsCodeFromCache(userEntity.getUsername());
-        if (!smsVerificationDto.getSmsCode().equals(smsToken)) {
-            throw new SmsValidationException("Doğrulama Kodu Hatalı");
-        }
+//        String smsToken = smsVerificationService.getRegisterSmsCodeFromCache(userEntity.getUsername());
+//        if (!smsVerificationDto.getSmsCode().equals(smsToken)) {
+//            throw new SmsValidationException("Doğrulama Kodu Hatalı");
+//        }
         String jwtToken = jwtTokenProvider.generateToken(authentication);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return AppResponse.success(new JwtResponseDTO(jwtToken, userEntity.getUsername()));
