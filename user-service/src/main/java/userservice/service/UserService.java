@@ -24,4 +24,8 @@ public class UserService {
     public List<UserEntity> getAllUsers() {
         return this.userRepository.findAll();
     }
+
+    public void saveUser(UserEntity user){
+        this.userRepository.save(user);
+    }
 }

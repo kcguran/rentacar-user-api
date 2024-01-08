@@ -37,6 +37,7 @@ public class AuthServiceApplication {
 		user.setEmail("keremcangurann@hotmail.com");
 		user.setPassword(passwordEncoder.encode("123456"));
 		user.setPhone("05304720634");
+		user.setPhoneVerification(true);
 		userService.saveUser(user);
 	}
 

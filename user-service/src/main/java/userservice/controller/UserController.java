@@ -17,11 +17,10 @@ public class UserController {
         this.userService = userService;
     }
 
+
     @GetMapping(value = "/my-profile")
     public String getAllUsers(@CurrentUser UserPrincipal currentUser){
 
-        System.out.println(currentUser.getUserId());
-        System.out.println(currentUser.getUsername());
         return "Başarılı";
     }
 }

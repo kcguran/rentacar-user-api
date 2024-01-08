@@ -29,4 +29,8 @@ public class Reservation extends DateAudit {
     private BigDecimal price;
 
     private Long userId;
+
+    private Long carId;
+
+    private Long locationId;
 }

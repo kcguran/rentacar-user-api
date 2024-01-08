@@ -1,7 +1,9 @@
 package reservationservice.service;
 
-import org.springframework.stereotype.Service;
+import reservationservice.entity.dto.ReservationCreateDto;
+import reservationservice.entity.dto.ReservationResponseDto;
 
-@Service
-public class ReservationService {
+public interface ReservationService {
+
+    ReservationResponseDto createReservation(ReservationCreateDto reservationCreateDto);
 }

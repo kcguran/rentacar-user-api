@@ -1,8 +1,7 @@
 package reservationservice.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import reservationservice.entity.dto.ReservationCreateDto;
 import reservationservice.entity.dto.ReservationResponseDto;
 import reservationservice.mapper.ReservationMapper;
 import reservationservice.other.AppResponse;
@@ -20,6 +19,12 @@ public class ReservationController {
     public ReservationController(ReservationService reservationService, ReservationMapper reservationMapper) {
         this.reservationService = reservationService;
         this.reservationMapper = reservationMapper;
+    }
+
+
+    @PostMapping(value = "/create")
+    public AppResponse<ReservationResponseDto> createReservation(@RequestBody ReservationCreateDto reservationCreateDto) {
+        return AppResponse.success(reservationService.createReservation(reservationCreateDto));
     }
 
 

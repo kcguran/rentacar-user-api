@@ -1,4 +1,4 @@
-package apigateway;
+package apigateway.filter;
 
 import apigateway.config.RouterValidator;
 import apigateway.util.JwtUtil;

@@ -56,7 +56,7 @@ public class AuthController {
 
     @SneakyThrows
     @PostMapping(value = "/login")
-    public AppResponse<UserEntity> login(@RequestBody LoginDto loginDto) {
+    public AppResponse<UserEntity> login(@RequestBody LoginDto loginDto) throws AppException {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword()));
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         Optional<UserEntity> user = userService.findByUsername(userDetails.getUsername());
